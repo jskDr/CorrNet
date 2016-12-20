@@ -2,8 +2,14 @@ __author__ = 'Sarath'
 
 import sys
 
-sys.path.append("../Model/")
-from corrnet import *
+"""
+Dec 2016
+The following is changed since Py 3 supports relative importing. 
+Previously, absloute directory is defined while now relative directory is used. 
+"""
+#sys.path.append("../Model/")
+#from corrnet import *
+from Model.corrnet import *
 
 src_folder = sys.argv[1] + "matpic1/"
 tgt_folder = sys.argv[2]

@@ -4,8 +4,8 @@ import numpy
 import os
 import sys
 
-sys.path.append("../Model/")
-from corrnet import *
+#sys.path.append("../Model/")
+from Model.corrnet import *
 
 
 def create_folder(folder):

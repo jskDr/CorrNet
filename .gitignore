@@ -1,2 +1,7 @@
 *.pyc
+*.npy
+*.zip
+*.txt
+*.pck
+*.bak
 .idea/

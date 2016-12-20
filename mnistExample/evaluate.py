@@ -9,6 +9,10 @@ import sys
 
 def svm_classifier(train_x, train_y, valid_x, valid_y, test_x, test_y):
 
+    # Since train_y should be 1d instead of 2d column vector, 
+    # I added this line to transform 2d column vector to 1d vector.
+    train_y = train_y.ravel()
+
     clf = svm.LinearSVC()
     clf.fit(train_x, train_y)
     pred = clf.predict(valid_x)
@@ -24,7 +28,7 @@ def transfer_learning_5fold(folder):
     view2 = numpy.load(folder + "test-view2.npy")
     labels = numpy.load(folder + "test-labels.npy")
 
-    perp = len(view1) / 5
+    perp = int(len(view1) / 5)
 
     print("view1 to view2")
 

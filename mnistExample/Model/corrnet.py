@@ -383,7 +383,7 @@ def trainCorrNet(src_folder, tgt_folder, batch_size=20, training_epochs=40,
                         next[2] + "_left", train_set_x_left, "float32", 1000, n_visible_left)
                     sparseTheanoloader(
                         next[2] + "_right", train_set_x_right, "float32", 1000, n_visible_right)
-                for batch_index in range(0, int(next[3]) / batch_size):
+                for batch_index in range(0, int(int(next[3]) / batch_size)):
                     c.append(mtrain_common(batch_index))
             elif(next[0] == "x"):
                 if(next[1] == "dense"):
@@ -392,7 +392,7 @@ def trainCorrNet(src_folder, tgt_folder, batch_size=20, training_epochs=40,
                 else:
                     sparseTheanoloader(
                         next[2] + "_left", train_set_x_left, "float32", 1000, n_visible_left)
-                for batch_index in range(0, int(next[3]) / batch_size):
+                for batch_index in range(0, int(int(next[3]) / batch_size)):
                     c.append(mtrain_left(batch_index))
             elif(next[0] == "y"):
                 if(next[1] == "dense"):
@@ -401,7 +401,7 @@ def trainCorrNet(src_folder, tgt_folder, batch_size=20, training_epochs=40,
                 else:
                     sparseTheanoloader(
                         next[2] + "_right", train_set_x_right, "float32", 1000, n_visible_right)
-                for batch_index in range(0, int(next[3]) / batch_size):
+                for batch_index in range(0, int(int(next[3]) / batch_size)):
                     c.append(mtrain_right(batch_index))
 
         if(flag == 1):
