@@ -29,7 +29,7 @@ def denseloader(file, bit):
 
 
 def sparseloader(file, bit, row, col):
-	print("loading ...", file)
+	print "loading ...", file
 	x = numpy.load(file + "d.npy")
 	y = numpy.load(file + "i.npy")
 	z = numpy.load(file + "p.npy")

@@ -5,7 +5,7 @@ import sys
 sys.path.append("../Model/")
 from corrnet import *
 
-src_folder = sys.argv[1]+"matpic1/"
+src_folder = sys.argv[1] + "matpic1/"
 tgt_folder = sys.argv[2]
 
 batch_size = 100
@@ -26,4 +26,3 @@ trainCorrNet(src_folder=src_folder, tgt_folder=tgt_folder, batch_size=batch_size
              tied=tied, n_visible_left=n_visible_left, n_visible_right=n_visible_right,
              n_hidden=n_hidden, lamda=lamda, hidden_activation=hidden_activation,
              output_activation=output_activation, loss_fn=loss_fn)
-

@@ -12,7 +12,7 @@ class Initializer(object):
 
 	def load(self, param_name, param, getnp=False):
 
-		print("loading "+ param_name +" matrix")
+		print "loading "+ param_name +" matrix"
 		initial_param = numpy.load(param+".npy")
 		if getnp==True:
 			return initial_param
@@ -24,7 +24,7 @@ class Initializer(object):
 	def fan_based(self, param_name, param, d1, d2, getnp=False):
 		if not param:
 
-			print("fan-based initialization of "+param_name)
+			print "fan-based initialization of "+param_name
 			initial_param = numpy.asarray(self.numpy_rng.uniform(low=-1 * numpy.sqrt(6. / (d1 + d2)),high=1 * numpy.sqrt(6. / (d1 + d2)),size=(d1, d2)), dtype=theano.config.floatX)
 			if getnp==True:
 				return initial_param
@@ -37,7 +37,7 @@ class Initializer(object):
 	def fan_based_sigmoid(self, param_name, param, d1, d2, getnp=False):
 		if not param:
 
-			print("fan-based-sigmoid initialization of "+param_name)
+			print "fan-based-sigmoid initialization of "+param_name
 			initial_param = numpy.asarray(self.numpy_rng.uniform(low=-1 * numpy.sqrt(6. / (d1 + d2)),high=1 * numpy.sqrt(6. / (d1 + d2)),size=(d1, d2)), dtype=theano.config.floatX)
 			initial_param = initial_param * 4
 			if getnp==True:
@@ -51,7 +51,7 @@ class Initializer(object):
 	def random_vector(self, param_name, param, d1, getnp=False):
 		if not param:
 
-			print("random initialization of "+param_name)
+			print "random initialization of "+param_name
 			initial_param = numpy.asarray(self.numpy_rng.uniform(low=-1 * numpy.sqrt(6. / (d1 + 1)),high=1 * numpy.sqrt(6. / (d1 + 1)),size=d1), dtype=theano.config.floatX)
 			if getnp==True:
 				return initial_param
@@ -64,7 +64,7 @@ class Initializer(object):
 
 	def zero_vector(self, param_name, param, d1, getnp=False):
 		if not param:
-			print("zeros initialization of "+param_name)
+			print "zeros initialization of "+param_name
 			initial_param = numpy.zeros(d1, dtype=theano.config.floatX)
 			if getnp==True:
 				return initial_param
@@ -76,7 +76,7 @@ class Initializer(object):
 
 	def one_vector(self, param_name, param, d1, scale= 1, getnp=False):
 		if not param:
-			print("ones initialization of "+param_name)
+			print "ones initialization of "+param_name
 			initial_param = numpy.ones(d1, dtype=theano.config.floatX) * scale
 			if getnp==True:
 				return initial_param
@@ -89,7 +89,7 @@ class Initializer(object):
 
 	def zero_matrix(self, param_name, param, d1, d2, getnp=False):
 		if not param:
-			print("zeros initialization of "+param_name)
+			print "zeros initialization of "+param_name
 			initial_param = numpy.zeros((d1,d2), dtype=theano.config.floatX)
 			if getnp==True:
 				return initial_param
@@ -101,7 +101,7 @@ class Initializer(object):
 
 	def identity_matrix(self, param_name, param, dim, getnp=False):
 		if not param:
-			print("identity matrix initialization of "+param_name)
+			print "identity matrix initialization of "+param_name
 			initial_param = numpy.identity(dim, dtype=theano.config.floatX)
 			if getnp==True:
 				return initial_param
@@ -113,7 +113,7 @@ class Initializer(object):
 
 	def gaussian(self, param_name, param, d1, d2, mean, sd, center, getnp=False):
 		if not param:
-			print("normal initialization of "+param_name)
+			print "normal initialization of "+param_name
 			initial_param = numpy.asarray(self.numpy_rng.normal(loc=mean, scale = sd, size=(d1,d2)),dtype=theano.config.floatX)
 			initial_param = center + initial_param
 			if getnp==True:
@@ -126,9 +126,9 @@ class Initializer(object):
 
 	def spectral(self, param_name, param, d1, d2, scale, getnp=False):
 		if not param:
-			print("spectral initialization of "+param_name)
+			print "spectral initialization of "+param_name
 			values = numpy.zeros((d1,d2), dtype = theano.config.floatX)
-			for dx in range(d1):
+			for dx in xrange(d1):
 				new_vals = self.numpy_rng.uniform(low = -scale, high = scale, size=(d2,))
 				vals_norm = numpy.sqrt((new_vals**2).sum())
 				new_vals = scale * new_vals/vals_norm
